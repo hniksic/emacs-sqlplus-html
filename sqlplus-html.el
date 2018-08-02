@@ -54,14 +54,8 @@
 ;; You can disable the mode at any time with `M-x sqlplus-html-mode',
 ;; which works as a toggle.
 
-;; The latest version should be available at:
-;;
-;;        <URL:http://fly.srk.fer.hr/~hniksic/emacs/sqlplus-html.el>
-;;
-
 ;; Thanks go to:
-;;   * Drazen Kacar <dave@arsdigita.com>, for introducing me to "set
-;;   markup html on".
+;;   * Drazen Kacar, for introducing me to "set markup html on".
 
 
 ;;; Code:
@@ -157,7 +151,6 @@ is turned off."
 	      ((null arg) (not sqlplus-html-mode))
 	      ((> (prefix-numeric-value arg) 0))))
   (cond (sqlplus-html-mode
-	 (make-local-hook 'kill-buffer-hook)
 	 (add-hook 'kill-buffer-hook 'sqlplus-html-kill-work-buffer nil t)
 	 (set-process-filter (get-buffer-process (current-buffer))
 			     'sqlplus-html-output-filter)
